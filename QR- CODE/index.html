@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!---SASS LINKING -->
+    <link rel="stylesheet" href="main.css" type="text/css">
+
+</head>
+
+<body>
+    <!---MAIN SECTION STARTS -->
+    <div class="container">
+        <div class="main-section">
+            <!--START LINK SECTION-->
+            <div class="row">
+
+                <div class="col ">
+                    <a href="# " data-tooltip="Open the URL after scanning" onclick="txt();" data-tooltip-location="top "> <i class="	fas fa-file-alt"></i> URL </a>
+                </div>
+                <div class="col">
+                    <a href="# " class="open-button" data-tooltip="Saves contact details on smartphones" onclick="vcard();" data-tooltip-location="top "> <i class="far fa-address-card"></i> VCARD </a>
+                </div>
+                <div class="col">
+                    <a href="# " data-tooltip="Display a plain text" onclick="txt();" data-tooltip-location="top "><i class="fas fa-edit"></i> TEXT</a>
+                </div>
+                <div class="col">
+                    <a href="# " data-tooltip="Sends an email with a predefined text" onclick="email();" data-tooltip-location="top "> <i class="fa fa-envelope" aria-hidden="true"></i> EMAIL</a>
+                </div>
+                <div class="col">
+                    <a href="# " data-tooltip="Sends an SMS with a predefined text" data-tooltip-location="top " onclick="sms();"> <i class="fas fa-assistive-listening-systems    "></i> SMS </a>
+                </div>
+                <div class="col">
+                    <a href="# " data-tooltip="Connect to a WIFI network" onclick="wifi();" data-tooltip-location="top "> <i class="fa fa-wifi" aria-hidden="true"></i> WIFI </a>
+                </div>
+            </div>
+            <!---END LINKS SECTIONS-->
+
+            <!--START LINK DESC-->
+
+            <div class="default">
+                <!--DEFAULT SECTION -->
+                <div class="form-group" id="txt">
+
+                    <input type="text" class="form-control " name="" aria-describedby="helpId" placeholder="Enter your website, text or drop a file here" autofocus>
+                    <small id="helpId" class="form-text">(Your QR Code will be generated automatically)</small>
+
+                </div>
+                <!---END DEFAULT SECTION-->
+                <!---START VCARD SECTION-->
+                <div id="vcard">
+                    <form class="form-container">
+                        <h3>vCard QR Code</h3>
+                        <label for="Name" id="specific">Your Name:</label>
+                        <input type="text" id="name" placeholder="First name " name="name " required>
+                        <input type="text" placeholder="Last name " id="name" name="name " required>
+                        <label for="Contact"> Contact: </label>
+                        <input type="number " placeholder="Mobile" id="mobile" class="mobile">
+                        <label for=""></label>
+                        <input type="number" placeholder="Phone" class="phone">
+                        <input type="number" placeholder="Fax " class="fax">
+
+                        <label for="Email">Email:</label>
+                        <input type="email" name="" id="email" placeholder="your@email.com">
+                        <label for="Company">Company:</label>
+                        <input type="text" placeholder="Company" name="" id="company">
+                        <input type="text" placeholder="Your Job" name="" id="job">
+                        <label for="Street">Street:</label>
+                        <input type="text" name="" id="street">
+                        <label for="City">City:</label>
+                        <input type="text" name="" id="">
+                        <input type="text" name="" placeholder="ZIP" id="ZIP">
+                        <label for="State">State:</label>
+                        <input type="text" name="" id="state">
+                        <label for="Country">Country:</label>
+                        <input type="text" name="" id="country">
+                        <label for="Website">Website: </label>
+                        <input type="url" name="" placeholder="www.your-website.com" id="website">
+                        <div class="btn">
+                            <button>CANCEL</button>
+                            <button>LOGIN</button>
+                        </div>
+                    </form>
+                </div>
+                <!---END VCARD SECTION-->
+                <!--START EMAIL SECTION-->
+                <div id="emailqrcode" style="display: none;">
+                    <form class="form-container">
+                        <h3>Email QR Code</h3>
+
+                        <label for="Email">Email:</label>
+                        <input type="email" name="" id="email" placeholder="your@email.com">
+
+                        <label for="Street">Subject:</label>
+                        <input type="text" name="" id="street" placeholder="Enter email subject">
+                        <div class="text">
+                            <label for="Messages" id="messages">Messages:</label>
+                            <textarea name="" id="" cols="60" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <!---END EMAIL SECTION-->
+                <!--START SMS SECTION-->
+                <div id="smsqrcode" style="display: none;">
+                    <form class="form-container">
+                        <h3>SMS QR Code</h3>
+
+                        <label for="Number">Number:</label>
+                        <input type="email" name="" id="email" placeholder="your phone number ">
+
+
+                        <div class="text">
+                            <label for="Messages" id="messages">Messages:</label>
+                            <textarea name="" id="" cols="60" rows="5" placeholder="Enter your text here"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <!--END EMAIL SECTION-->
+                <!---START WIFI SECTION-->
+
+                <div id="wifi" style="display: none;">
+                    <form class="form-container">
+                        <h3>WiFi QR Code</h3>
+
+                        <label for="Network Name">Network Name:</label>
+                        <input type="text" name="" id="network" placeholder="SSID">
+
+
+                        <input type="checkbox" name="" id="checkbox">
+                        <span id="span">Hidden</span>
+                        <a href="" data-tooltip="Is this a hidden WiFi network?" data-tooltip-location="top "> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </a>
+
+                        <label for="Password" id="pass">Password:</label>
+                        <input type="password" name="" class="pass" id="email">
+                        <label for="Encrption" id="encrypt">Encrption   <a href="" data-tooltip="the type of security protocol on your network" data-tooltip-location="top "> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </a> </label>
+                        <div class="radio-btns">
+                            <input id="r1" type="radio" name="radio" value="1"> None
+                            <input id="r1" type="radio" name="radio" value="1" checked> WPA/WPA2
+                            <input id="r1" type="radio" name="radio" value="1"> WEP
+                        </div>
+                        <button id="generate">GENERATE QR CODE</button>
+                    </form>
+                </div>
+                <!---END WIFI SECTION-->
+            </div>
+
+
+
+        </div>
+        <!---END MAIN SECTION-->
+    </div>
+
+    <script>
+        function hideall() {
+            document.getElementById('smsqrcode').style.display = 'none';
+            document.getElementById('wifi').style.display = 'none';
+            document.getElementById('emailqrcode').style.display = 'none';
+            document.getElementById('txt').style.display = 'none';
+            document.getElementById('vcard').style.display = 'none';
+            //document.getElementById('url').style.display ='none';
+        }
+
+        function sms() {
+            hideall();
+            document.getElementById('smsqrcode').style.display = 'block';
+        }
+
+        function url() {
+            hideall();
+            document.getElementById('url').style.display = 'block';
+        }
+
+        function txt() {
+            hideall();
+            document.getElementById('txt').style.display = 'block';
+        }
+
+        function email() {
+            hideall();
+            document.getElementById('emailqrcode').style.display = 'block';
+        }
+
+        function vcard() {
+            hideall();
+            document.getElementById('vcard').style.display = 'block';
+        }
+
+        function wifi() {
+            hideall();
+            document.getElementById('wifi').style.display = 'block';
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

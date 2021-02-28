@@ -1,0 +1,814 @@
+/* ==================  DEFAULT SETTINGS  ================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    font-family: "Inter", Arial, sans-serif;
+    color: #8a91b4;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background: #f6f8ff;
+}
+
+:root {
+    user-select: none;
+}
+
+.form-control::placeholder {
+    position: relative;
+    left: 0%;
+}
+
+::placeholder {
+    position: relative;
+    left: 2%;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    margin: 12px;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    max-width: 320px;
+}
+
+ul li {
+    margin: 16px 0;
+    position: relative;
+}
+
+
+/*============== END DEFAULT SETTINGS =============*/
+
+
+/* ====== STRAT LINKS AREA ===========*/
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container .main-section {
+    width: 70%;
+    border: 1px solid transparent;
+    min-height: 100%;
+    height: 600px;
+    position: relative;
+    margin-top: 90px;
+}
+
+.container .main-section .row .col {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    padding-top: 10px;
+}
+
+.container .main-section .row .col a {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    height: 40px;
+}
+
+.container .main-section .row .col a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.container .main-section .row .col i {
+    padding-right: 8px;
+}
+
+
+/*========= TOOLTIP =========*/
+
+[data-tooltip] {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Positioning and visibility settings of the tooltip */
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    bottom: calc(100% + 5px);
+    /* 5px is the size of the arrow */
+    pointer-events: none;
+    transition: 0.1s;
+    will-change: transform;
+}
+
+
+/* The actual tooltip with a dynamic width */
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 10px 18px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    width: -moz-max-content;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: rgba(30, 31, 32, 0.9);
+    background-image: linear-gradient(30deg, rgba(59, 72, 80, 0.44), rgba(59, 68, 75, 0.44), rgba(60, 82, 88, 0.44));
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+    transform: translate(-50%, -5px) scale(0.5);
+}
+
+
+/* Tooltip arrow */
+
+[data-tooltip]:after {
+    content: '';
+    border-style: solid;
+    border-width: 5px 5px 0px 5px;
+    /* CSS triangle */
+    border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+    transition-duration: 0.1s;
+    /* If the mouse leaves the element, 
+                                the transition effects for the 
+                                tooltip arrow are "turned off" */
+    transform-origin: top;
+    /* Orientation setting for the
+                                slide-down effect */
+    transform: translateX(-50%) scaleY(0);
+}
+
+
+/* Tooltip becomes visible at hover */
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Scales from 0.5 to 1 -> grow effect */
+
+[data-tooltip]:hover:before {
+    transition-delay: 0.1s;
+    transform: translate(-50%, -5px) scale(1);
+}
+
+
+/* 
+    Arrow slide down effect only on mouseenter (NOT on mouseleave)
+  */
+
+[data-tooltip]:hover:after {
+    transition-delay: 0.1s;
+    /* Starting after the grow effect */
+    transition-duration: 0.1s;
+    transform: translateX(-50%) scaleY(1);
+}
+
+
+/* ===== END LINKS AREA ====== */
+
+
+/*====== START DEFAULT LAYOUT ===== */
+
+.container .main-section .default {
+    position: relative;
+    top: 10%;
+}
+
+.container .main-section .default .form-control {
+    width: 90%;
+    height: 50px;
+    position: relative;
+    border: none;
+    outline: none;
+}
+
+.container .main-section .default .form-control:focus {
+    outline: none;
+    background-color: transparent;
+    border: transparent;
+    box-shadow: none;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.container .main-section .default small {
+    left: 10px;
+    position: relative;
+    top: 10px;
+    font-size: medium;
+}
+
+
+/* ======END DFAULT LAYOUT ============ */
+
+
+/* ============  START VCARD SECTION ============== */
+
+#vcard {
+    width: 100%;
+    display: none;
+}
+
+#vcard h3 {
+    font-size: large;
+    font-weight: bold;
+    opacity: .7;
+}
+
+.form-container label {
+    display: inline-block;
+    width: 33.33%;
+}
+
+.form-container input {
+    height: 40px;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid gray;
+    opacity: .4;
+}
+
+.form-container #mobile {
+    width: 400px;
+}
+
+.form-container .duo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container #email,
+.form-container #street,
+.form-container #state,
+.form-container #country,
+.form-container #website {
+    width: 400px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn button {
+    width: 80px;
+    height: 50px;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 10px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: rgba(30, 31, 32, 0.3);
+}
+
+
+/* =========END VCARD AREA =============== */
+
+
+/* ======= START EMAIL and SMS AREA ======= */
+
+.text {
+    display: flex;
+}
+
+textarea {
+    position: relative;
+    width: 400px;
+    left: 0.7%;
+    resize: none;
+    border: 2px solid gray;
+    outline: none;
+    opacity: .4;
+    overflow: hidden;
+}
+
+textarea:focus {
+    border: 2px solid gray;
+    outline: none;
+    opacity: .4;
+}
+
+
+/* ======= END EMAIL and SMS AREA ======= */
+
+
+/* ======= START NETWORK  AREA ======= */
+
+.fa-question-circle {
+    opacity: .6;
+}
+
+#network {
+    width: 250px;
+}
+
+#checkbox {
+    width: 20px;
+    position: relative;
+    top: 14px;
+}
+
+#encrypt {
+    display: block;
+    margin-top: 20px;
+}
+
+.radio-btns {
+    position: relative;
+    margin-left: 30px;
+    opacity: 1;
+}
+
+#password {
+    width: 38%;
+    position: relative;
+    left: 22%;
+    height: 40px;
+    margin: 10px;
+    outline: none;
+    border: 2px solid gray;
+    opacity: .4;
+}
+
+.radio-btns {
+    position: relative;
+    left: 230px;
+    top: -30px;
+}
+
+
+/* CUSTOM RADIO BUTTONS */
+
+input[type="radio"] {
+    --active: #275efe;
+    --active-inner: #fff;
+    --focus: 2px rgba(39, 94, 254, 0.3);
+    --border: #bbc1e1;
+    --border-hover: #275efe;
+    --background: #fff;
+    --disabled: #f6f8ff;
+    --disabled-inner: #e1e6f9;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid var(--bc, var(--border));
+    background: var(--b, var(--background));
+    -webkit-transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+}
+
+input[type="radio"]:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    -webkit-transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+}
+
+input[type="radio"]:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+input[type="radio"]:disabled {
+    --b: var(--disabled);
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+input[type="radio"]:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+}
+
+input[type="radio"]:disabled+label {
+    cursor: not-allowed;
+}
+
+input[type="radio"]:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+}
+
+input[type="radio"]:focus {
+    box-shadow: 0 0 0 var(--focus);
+}
+
+input[type="radio"]:not(.switch) {
+    width: 21px;
+}
+
+input[type="radio"]:not(.switch):after {
+    opacity: var(--o, 0);
+}
+
+input[type="radio"]:not(.switch):checked {
+    --o: 1;
+}
+
+input[type="radio"]+label {
+    font-size: 14px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="radio"]:after {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--active-inner);
+    opacity: 0;
+    -webkit-transform: scale(var(--s, 0.7));
+    transform: scale(var(--s, 0.7));
+}
+
+input[type="radio"]:checked {
+    --s: 0.5;
+}
+
+#generate {
+    border: none;
+    width: 300px;
+    background-color: lawngreen;
+    height: 60px;
+    border-radius: 30px;
+    color: white;
+    font-size: large;
+}
+
+
+/* ======= END NETWORK  AREA ======= */
+
+
+/* RESPONSIVE */
+
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* ====== STRAT LINKS AREA ===========*/
+    .container .main-section {
+        min-width: 100%;
+        min-height: 100%;
+    }
+    /* ============  START VCARD SECTION ============== */
+    .form-container input {
+        height: 40px;
+        width: 29%;
+        margin: 10px 0;
+        outline: none;
+        border: 2px solid gray;
+        opacity: .4;
+    }
+    .form-container #mobile,
+    .form-container #email,
+    .form-container #street,
+    .form-container #state,
+    .form-container #country,
+    .form-container #website {
+        width: 58.5%;
+    }
+    /* =========END VCARD AREA =============== */
+    /* ======= START EMAIL and SMS AREA ======= */
+    .text {
+        display: flex;
+    }
+    textarea {
+        position: relative;
+        width: 58.3%;
+        left: 0.7%;
+    }
+    /* ======= END EMAIL and SMS AREA ======= */
+    /* ====== RADIO BTNS SETTINGS =========== */
+    .radio-btns {
+        max-width: 80%;
+        display: block;
+        margin: 0px 80px;
+    }
+    input[type="radio"]:not(.switch) {
+        max-width: 40px;
+        max-height: 25px;
+        position: relative;
+        top: -3px;
+        margin: 0px 5px;
+    }
+}
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* ====== STRAT LINKS AREA ===========*/
+    .container .main-section .row .col {
+        position: relative;
+        padding-top: 10px;
+        display: flex;
+        width: 100px;
+    }
+    .container .main-section .row .col a {
+        font-size: 14px;
+        width: 100px;
+    }
+    /* ============  START VCARD SECTION ============== */
+    .form-container input {
+        height: 40px;
+        width: 29%;
+        margin: 10px 0;
+        outline: none;
+        border: 2px solid gray;
+        opacity: .4;
+    }
+    .form-container #mobile,
+    .form-container #email,
+    .form-container #street,
+    .form-container #state,
+    .form-container #country,
+    .form-container #website {
+        width: 58.9%;
+    }
+    /* =========END VCARD AREA =============== */
+    /* ======= START EMAIL and SMS AREA ======= */
+    .text {
+        display: flex;
+    }
+    textarea {
+        position: relative;
+        width: 58.9%;
+        left: 0.7%;
+    }
+    /* ======= END EMAIL and SMS AREA ======= */
+    /* ====== RADIO BTNS SETTINGS =========== */
+    .radio-btns {
+        max-width: 80%;
+        display: block;
+        margin: 0px 0px;
+    }
+    input[type="radio"]:not(.switch) {
+        max-width: 40px;
+        max-height: 25px;
+        position: relative;
+        top: -3px;
+        margin: 0px 5px;
+    }
+    #network {
+        width: 60%;
+        display: block;
+    }
+    #checkbox {
+        width: 20px;
+        position: relative;
+        margin-top: -20px;
+    }
+    #span {
+        position: relative;
+        margin-top: -35px;
+    }
+    .fa-question-circle {
+        opacity: .6;
+        position: relative;
+        margin-top: -35px;
+    }
+    #pass {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+    }
+    #encrypt {
+        display: block;
+        margin-top: 10px;
+    }
+    .radio-btns {
+        max-width: 100%;
+        position: relative;
+        margin-left: -150px;
+    }
+    #password {
+        width: 38%;
+        position: relative;
+        left: 22%;
+        height: 40px;
+        margin: 10px;
+        outline: none;
+        border: 2px solid gray;
+        opacity: .4;
+    }
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* ====== STRAT LINKS AREA ===========*/
+    .container .main-section {
+        width: 100%;
+        border: 1px solid transparent;
+        position: relative;
+    }
+    .container .main-section .row .col {
+        position: relative;
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .container .main-section .row .col a {
+        font-size: 14px;
+        width: 80px;
+    }
+    /* ============  START VCARD SECTION ============== */
+    .form-container input {
+        height: 40px;
+        width: 29%;
+        margin: 10px 0;
+        outline: none;
+        border: 2px solid gray;
+        opacity: .4;
+    }
+    .form-container #mobile,
+    .form-container #email,
+    .form-container #street,
+    .form-container #state,
+    .form-container #country,
+    .form-container #website {
+        width: 58.9%;
+    }
+    /* =========END VCARD AREA =============== */
+    /* ======= START EMAIL and SMS AREA ======= */
+    .text {
+        display: flex;
+    }
+    textarea {
+        position: relative;
+        width: 58.9%;
+        left: 0.7%;
+    }
+    /* ======= END EMAIL and SMS AREA ======= */
+    /* ====== RADIO BTNS SETTINGS =========== */
+    .radio-btns {
+        max-width: 80%;
+        display: block;
+        margin: 0px 0px;
+    }
+    input[type="radio"]:not(.switch) {
+        max-width: 40px;
+        max-height: 25px;
+        position: relative;
+        top: -3px;
+        margin: 0px 5px;
+    }
+    #network {
+        width: 60%;
+        display: block;
+    }
+    #checkbox {
+        width: 20px;
+        position: relative;
+        margin-top: -20px;
+    }
+    #span {
+        position: relative;
+        margin-top: -35px;
+    }
+    .fa-question-circle {
+        opacity: .6;
+        position: relative;
+        margin-top: -35px;
+    }
+    #pass {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+    }
+    #encrypt {
+        display: block;
+        margin-top: 10px;
+    }
+    .radio-btns {
+        max-width: 100%;
+        position: relative;
+        margin-left: -150px;
+    }
+    #password {
+        width: 38%;
+        position: relative;
+        left: 22%;
+        height: 40px;
+        margin: 10px;
+        outline: none;
+        border: 2px solid gray;
+        opacity: .4;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+}
+
+@media (max-height: 450px) {
+    main {
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        font-size: 0.9em;
+    }
+}
+
+
+/* Thumbnail settings */
+
+@media (max-width: 750px) {
+    html {
+        animation-duration: 0.6s;
+    }
+    [data-tooltip]:after {
+        bottom: calc(100% + 3px);
+    }
+    [data-tooltip]:after {
+        border-width: 7px 7px 0px 7px;
+    }
+}
